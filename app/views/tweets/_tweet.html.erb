@@ -1,0 +1,23 @@
+      <div class="row">
+        <% if user_signed_in? && current_user.id == tweet.user_id %>
+        <div class="more">
+        <div class="col s12 m6">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title"></span>
+            <%= simple_format(tweet.text) %>
+            </div>
+            <div class="card-action">
+              <%= link_to '編集', "/tweets/#{tweet.id}/edit", method: :get %>
+              <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
+            </div>
+        <% end %>
+            <span class="name">
+            <a href="">
+            <span>投稿者</span><%= tweet.user.nickname %>
+            </a>
+            </span>
+          </div>
+        </div>
+        </div>
+      </div>
